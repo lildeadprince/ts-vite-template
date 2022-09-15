@@ -1,0 +1,144 @@
+{
+  "name": "ts-vite-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=7"
+  },
+  "scripts": {
+    "build": "vite build",
+    "build:prod": "tsc && vite build --mode production",
+    "build:test": "tsc && vite build --mode test",
+    "prepare": "pnpm simple-git-hooks",
+    "preview": "vite preview",
+    "start": "vite",
+    "up!": "pnpm upgrade --interactive --latest",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Xirtid Nepla <avadend.piroserpen@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@vitejs/plugin-basic-ssl": "^0.1.2",
+    "browserslist": "^4.21.4",
+    "classnames": "^2.3.2",
+    "typescript": "^4.8.3",
+    "vite": "^3.1.1",
+    "vite-plugin-pwa": "^0.12.7",
+    "workbox-broadcast-update": "^6.5.4",
+    "workbox-precaching": "^6.5.4",
+    "workbox-routing": "^6.5.4"
+  },
+  "nano-staged": {
+    "*.css": "stylelint --fix",
+    "*.{ts,tsx}": "eslint --fix"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm nano-staged"
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "endOfLine": "lf",
+    "printWidth": 120,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:prettier/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/recommended-requiring-type-checking"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "*.ts",
+          "*.tsx"
+        ],
+        "parser": "@typescript-eslint/parser",
+        "parserOptions": {
+          "project": "./tsconfig.json"
+        }
+      }
+    ],
+    "env": {
+      "browser": true
+    },
+    "rules": {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "ignoreRestSiblings": true
+        }
+      ],
+      "@typescript-eslint/no-use-before-define": [
+        "error",
+        {
+          "functions": false
+        }
+      ],
+      "import/prefer-default-export": "off",
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "error",
+            "warn",
+            "time"
+          ]
+        }
+      ],
+      "no-plusplus": [
+        "error",
+        {
+          "allowForLoopAfterthoughts": true
+        }
+      ],
+      "no-void": "off",
+      "radix": [
+        "error",
+        "as-needed"
+      ]
+    },
+    "ignorePatterns": [
+      "*.config.[tj]s"
+    ]
+  },
+  "browserslist": [
+    "last 3 versions"
+  ],
+  "stylelint": {
+    "extends": [
+      "stylelint-config-recommended",
+      "stylelint-config-css-modules"
+    ],
+    "rules": {
+      "font-family-name-quotes": "always-where-recommended",
+      "indentation": [
+        2,
+        {
+          "severity": "warning"
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.37.0",
+    "eslint": "^8.23.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nano-staged": "^0.8.0",
+    "prettier": "^2.7.1",
+    "simple-git-hooks": "^2.8.0",
+    "stylelint": "^14.11.0",
+    "stylelint-config-css-modules": "^4.1.0",
+    "stylelint-config-recommended": "^9.0.0"
+  }
+}
